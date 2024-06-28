@@ -1,0 +1,60 @@
+html1
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact List</title>
+</head>
+<body>
+    <header>
+        <h1>Contact List</h1>
+        <div class="header-actions">
+            <input type="text" id="search" placeholder="Search contacts...">
+            <button id="add-contact"><img src="imges/add.png" alt="Add Contact Icon"></button>
+        </div>
+    </header>
+    <main>
+        <section class="contact-list">
+            <h2>Contacts</h2>
+            <ul>
+                <li>
+                    <span class="contact-info">
+                        <h3>Aviv Dahan</h3>
+                        <p>Email: aviv.dahan@walla.co.il | Phone: (+972) 05356-7890</p>
+                        <span class="contact-actions">
+                            <span class="edit">✏️</span>
+                            <span class="trash">🗑️</span>
+                        </span>
+                    </span>
+                </li>
+                <li>
+                    <span class="contact-info">
+                        <h3>Roy Horvitz</h3>
+                        <p>Email: roy.horvitz@walla.co.il | Phone: (+972) 05267-8901</p>
+                        <span class="contact-actions">
+                            <span class="edit">✏️</span>
+                            <span class="trash">🗑️</span>
+                        </span>
+                    </span>
+                </li>
+                <li>
+                    <span class="contact-info">
+                        <h3>Eli Gozlan</h3>
+                        <p>Email: eli.gozlan@walla.co.il | Phone: (+972) 05078-9012</p>
+                        <span class="contact-actions">
+                            <span class="edit">✏️</span>
+                            <span class="trash">🗑️</span>
+                        </span>
+                    </span>
+                </li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Contact List. All rights reserved.</p>
+    </footer>
+</body>
+</html>
