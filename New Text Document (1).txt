@@ -1,74 +1,46 @@
-HTML
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact List</title>
+    <link rel="stylesheet" href="CSS .css">
 </head>
 <body>
     <header>
         <h1>Contact List</h1>
-      
     </header>
     <main>
         <section class="contact-list">
             <h2>Contacts</h2>
             <div class="header-actions">
                 <input type="text" id="search" placeholder="Search contacts...">
-                <button id="add-contact"><img src="addICON.jpg" alt="Add Contact Icon"></button>
+                <button id="add-contact"><img src="/IMG/1.png" alt="Add Contact Icon"></button>
             </div>
-            <ul>
-                <li>
-                    <span class="contact-info">
-                        <h3>Aviv Dahan</h3>
-                        <div class="info-wrapper">
-                            <p class="email-txt">Email: aviv.dahan@walla.co.il  </p>
-                            <p>
-                                Phone: (+972) 05356-7890
-                            </p>
-                            <span class="contact-actions">
-                                <span class="edit">✏️</span>
-                                <span class="trash">🗑️</span>
-                            </span>
-                        </div>
-                    </span>
-                </li>
-                <li>
-                    <span class="contact-info">
-                        <h3>Roy Horvitz</h3>
-                        <div class="info-wrapper">
-                            <p class="email-txt">Email: roy.horvitz@walla.co.il </p>
-                            <p>
-                                Phone: (+972) 05267-8901
-                            </p>
-                            <span class="contact-actions">
-                                <span class="edit">✏️</span>
-                                <span class="trash">🗑️</span>
-                            </span>
-                        </div>
-                    </span>
-                </li>
-                <li>
-                    <span class="contact-info">
-                        <h3>Eli Gozlan</h3>
-                        <div class="info-wrapper">
-                            <p  class="email-txt" >Email: eli.gozlan@walla.co.il  </p>
-                            <p> Phone: (+972) 05078-9012</p>
-                            <span class="contact-actions">
-                                <span class="edit">✏️</span>
-                                <span class="trash">🗑️</span>
-                            </span>
-                        </div>
-                    </span>
-                </li>
-            </ul>
+            <ul id="contacts"></ul>
         </section>
     </main>
     <footer>
         <p>&copy; 2024 Contact List. All rights reserved.</p>
     </footer>
+
+    <!-- Popup Form -->
+    <div id="popup-form" class="popup-form">
+        <div class="form-container">
+            <h2 id="popup-title">Add Contact</h2>
+            <form id="contact-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" required>
+                <button type="submit">Save</button>
+                <button type="button" id="close-popup">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
 </body>
 </html>
