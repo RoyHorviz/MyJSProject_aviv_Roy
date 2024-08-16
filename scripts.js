@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const contactForm = document.getElementById('contact-form');
     const closePopupButton = document.getElementById('close-popup');
     const addContactButton = document.getElementById('add-contact');
+    const deleteAllButton = document.getElementById('delete-all'); 
     const popupTitle = document.getElementById('popup-title');
 
     let editingContactIndex = null;
@@ -83,6 +84,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     closePopupButton.addEventListener('click', closePopup);
+
+    
+    deleteAllButton.addEventListener('click', () => {
+        contacts.length = 0; 
+        renderContacts(); 
+    });
 
     renderContacts();
 });
