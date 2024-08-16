@@ -54,6 +54,31 @@ header {
     height: 50px;
 }
 
+#delete-all {
+    font-size: 16px;
+    background-color: white;
+    border: 1px solid #4CAF50;
+    border-radius: 50%;
+    color: #4CAF50;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    margin-left: 10px; 
+}
+#delete-all img{
+    width:30px;
+    height: 30px;
+
+}
+
+#delete-all:hover {
+    background-color: #3fa823;
+    color: white;
+}
+
 footer {
     background-color: #4CAF50;
     color: white;
