@@ -140,7 +140,7 @@ main {
 }
 
 .contact-actions {
-    margin-left: 10px;
+    margin-left: 450px;
 }
 
 .contact-actions .edit,
@@ -210,3 +210,100 @@ main {
 .popup-form button[type="button"]:hover {
     background-color: #bbb;
 }
+.popup-form {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure the popup is on top */
+}
+
+.popup-form .form-container {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.popup-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.popup-form label {
+    margin-top: 10px;
+}
+
+.popup-form input {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.popup-form button {
+    padding: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 4px;
+}
+
+.popup-form button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+}
+
+.popup-form button[type="button"] {
+    background-color: #ddd;
+    border: none;
+}
+
+.popup-form button[type="button"]:hover {
+    background-color: #bbb;
+}
+.contact-actions .details {
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.contact-actions .details:hover {
+    color: #4CAF50;
+}
+
+#details-popup .form-container {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 500px;
+    width: 100%;
+}
+
+#details-popup p {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+#details-popup button {
+    padding: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    background-color: #ddd;
+    border: none;
+}
+
+#details-popup button:hover {
+    background-color: #bbb;
+}
+
