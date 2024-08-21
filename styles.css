@@ -42,7 +42,10 @@ header {
     justify-content: center;
     width: 40px;
     height: 40px;
+    margin-left: auto;
 }
+
+
 
 #add-contact:hover {
     background-color: #3fa823;
@@ -68,9 +71,10 @@ header {
     height: 40px;
     margin-left: 10px; 
 }
+
 #delete-all img{
-    width:30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
 
 }
 
@@ -306,4 +310,16 @@ main {
 #details-popup button:hover {
     background-color: #bbb;
 }
+#play-music {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
 
+#play-music:hover {
+    background-color: #1021dd;
+}
