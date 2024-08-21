@@ -1,3 +1,4 @@
+'use strict'
 document.addEventListener('DOMContentLoaded', () => {
     const contacts = [
         { name: 'Aviv Dahan', email: 'aviv.dahan@walla.co.il', phone: '052-4563123', address: 'Tel Aviv, Israel' },
@@ -16,8 +17,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('search');
     const detailsPopup = document.getElementById('details-popup');
     const closeDetailsButton = document.getElementById('close-details');
-
+    const playMusicButton= document.getElementById('play-music');
     let editingContactIndex = null;
+    let currentAudio = null;
+    
 
     // Function to render contacts based on a given filter (default is to show all contacts)
     function renderContacts(filter = '') {
@@ -46,6 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
             contactList.appendChild(contactItem);
         });
     }
+    
 
     function openPopup(title, contact) {
         popupTitle.textContent = title;
@@ -82,6 +86,14 @@ document.addEventListener('DOMContentLoaded', () => {
             phone: contactForm.phone.value,
             address: contactForm.address.value // Include address
         };
+
+        // Check if the name already exists in the contacts list
+        const isDuplicate = contacts.some(contact => contact.name.toLowerCase() === newContact.name.toLowerCase());
+        if (isDuplicate) {
+        alert('A contact with this name already exists. Please use a different name.');
+        return; // Prevent saving the duplicate contact
+         }
+
         if (editingContactIndex !== null) {
             contacts[editingContactIndex] = newContact;
         } else {
@@ -104,6 +116,23 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    function playAudio(url) {
+
+        if (currentAudio) {
+            currentAudio.pause();
+            currentAudio.currentTime = 0; 
+        }
+        currentAudio = new Audio(url);
+        currentAudio.volume = 1.0;
+        currentAudio.play().catch(error => {
+            console.error("שגיאה בניגון אודיו:", error)})
+        }
+
+        playMusicButton.addEventListener('click', () => {
+            playAudio('sounds/Music.mp3')
+        });
+
+
     addContactButton.addEventListener('click', () => {
         openPopup('Add Contact');
     });
@@ -121,4 +150,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     renderContacts();
-});
+   
+    
+       
+    });
+
+
