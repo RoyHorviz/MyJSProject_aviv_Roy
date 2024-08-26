@@ -2,9 +2,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     const contacts = [
         { name: 'Aviv Dahan', email: 'aviv.dahan@walla.co.il', phone: '052-4563123', address: 'Tel Aviv, Israel' },
-        { name: 'Roy Horvitz', email: 'roy.horvitz@walla.co.il', phone: '052-45612232', address: 'Jerusalem, Israel' },
+        { name: 'David Levi', email: 'david.levi@walla.co.il', phone: '054-4563123', address: 'Beersheba, Israel' },
         { name: 'Eli Gozlan', email: 'eli.gozlan@walla.co.il', phone: '051-4533123', address: 'Haifa, Israel' },
-        { name: 'David Levi', email: 'david.levi@walla.co.il', phone: '054-4563123', address: 'Beersheba, Israel' }
+        { name: 'Roy Horvitz', email: 'roy.horvitz@walla.co.il', phone: '052-45612232', address: 'Jerusalem, Israel'}
     ];
 
     const contactList = document.getElementById('contacts');
@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const detailsPopup = document.getElementById('details-popup');
     const closeDetailsButton = document.getElementById('close-details');
     const playMusicButton= document.getElementById('play-music');
+    
     let editingContactIndex = null;
     let currentAudio = null;
     
@@ -49,6 +50,27 @@ document.addEventListener('DOMContentLoaded', () => {
             contactList.appendChild(contactItem);
         });
     }
+    function handleContactActions(event) {
+        const index = event.target.dataset.index;
+        if (index !== undefined) {
+            const filteredContacts = contacts
+                .filter(contact => contact.name.toLowerCase().includes(searchInput.value.toLowerCase()))
+                .sort((a, b) => a.name.localeCompare(b.name));
+            const contact = filteredContacts[index]; // קבלת איש הקשר לפי האינדקס מהתצוגה המסוננת
+    
+            if (event.target.classList.contains('edit')) {
+                editingContactIndex = contacts.findIndex(c => c.name === contact.name);
+                openPopup('Edit Contact', contact);
+            } else if (event.target.classList.contains('trash')) {
+                contacts.splice(contacts.findIndex(c => c.name === contact.name), 1);
+                renderContacts(searchInput.value);
+            } else if (event.target.classList.contains('details')) {
+                openDetailsPopup(contact);
+            }
+        }
+    }
+    
+
     
 
     function openPopup(title, contact) {
@@ -132,6 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
             playAudio('sounds/Music.mp3')
         });
 
+        
 
     addContactButton.addEventListener('click', () => {
         openPopup('Add Contact');
@@ -148,7 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
     searchInput.addEventListener('input', () => {
         renderContacts(searchInput.value);
     });
-
+    contactList.addEventListener('click', handleContactActions);
     renderContacts();
    
     
